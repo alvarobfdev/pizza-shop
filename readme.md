@@ -44,28 +44,31 @@
                                                                           ]
                                                                          }</td>
     </tr>
+    <tr>
+            <td>POST</td><td>pizza-shop/public/api/v1/pizza</td><td>CREATE</td><td>INPUT-> {"pizza":
+                                                                                                                                                       {
+                                                                                                                                                           "name":"Carbonara",
+                                                                                                                                                           "image":"/hola/hola",
+                                                                                                                                                           "ingredients":[
+                                                                                                                                                           	{
+                                                                                                                                                           		"id":"3"
+                                                                                                                                                           	},
+                                                                                                                                                           	{
+                                                                                                                                                           	    "name":"Bacon",
+                                                                                                                                                           	    "amount":"2.50"
+                                                                                                                                                           	}
+
+                                                                                                                                                           ]
+                                                                                                                                                       }
+
+                                                                                                                                                   }</td>
+        </tr>
 </table>
 
 
 
 
-POST    pizza-shop/public/api/v1/pizza      CREATE      INPUT-> {"pizza":
-                                                                    {
-                                                                        "name":"Carbonara",
-                                                                        "image":"/hola/hola",
-                                                                        "ingredients":[
-                                                                        	{
-                                                                        		"id":"3"
-                                                                        	},
-                                                                        	{
-                                                                        	    "name":"Bacon",
-                                                                        	    "amount":"2.50"
-                                                                        	}
 
-                                                                        ]
-                                                                    }
-
-                                                                }
 
 
 PUT   pizza-shop/public/api/v1/pizza/{id}    UPDATE     INPUT -> {"pizza":
