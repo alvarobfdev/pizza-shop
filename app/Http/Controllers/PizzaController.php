@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Ingredient;
 use App\Pizza;
+use App\PriceCalculator\PizzaPriceCalculator;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -27,7 +29,7 @@ class PizzaController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -38,7 +40,17 @@ class PizzaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Falta validacion de input
+        $pizza = $request->get("pizza");
+        $ingredients = $pizza["ingredients"];
+
+        $pizzaDb = new Pizza();
+        $this->inflatePizza($pizza, $pizzaDb);
+        $pizzaDb->save();
+        $this->saveIngredients($pizzaDb, $ingredients);
+        return $pizzaDb->with("ingredients")->find($pizzaDb->id);
+
+
     }
 
     /**
@@ -72,7 +84,17 @@ class PizzaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Falta validacion input
+
+        $pizza = $request->get("pizza");
+        $ingredients = $pizza["ingredients"];
+
+        $pizzaDb = Pizza::find($id);
+        $this->inflatePizza($pizza, $pizzaDb);
+        $pizzaDb->save();
+        $this->saveIngredients($pizzaDb, $ingredients);
+        return $pizzaDb->with("ingredients")->find($pizzaDb->id);
+
     }
 
     /**
@@ -83,6 +105,39 @@ class PizzaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $result["result"] = "success";
+        if($pizza = Pizza::find($id)) {
+            $pizza->delete();
+        }
+        else {
+            $result["result"] = "fail";
+        }
+        return $result;
+    }
+
+    protected function saveIngredients($pizzaDb, $ingredients) {
+        $pizzaDb->ingredients()->delete();
+        foreach($ingredients as $ingredient) {
+            if(array_key_exists("id", $ingredient)) {
+                $ingredientDb = Ingredient::find($ingredient["id"]);
+            }
+            else {
+                $ingredientDb  = new Ingredient();
+                $ingredientDb->name = $ingredient["name"];
+                $ingredientDb->amount = $ingredient["amount"];
+            }
+
+            $pizzaDb->ingredients()->save($ingredientDb);
+        }
+    }
+
+    /**
+     * @param $pizza
+     * @param $pizzaDb
+     */
+    private function inflatePizza($pizza, $pizzaDb)
+    {
+        $pizzaDb->name = $pizza["name"];
+        $pizzaDb->image = $pizza["image"];
     }
 }

@@ -26,7 +26,8 @@ $factory->define(App\Pizza::class, function (Faker\Generator $faker) {
 
 
     return [
-        'name' => $faker->name
+        'name' => $faker->name,
+        'image'=>$faker->imageUrl()
     ];
 });
 

@@ -1,0 +1,14 @@
+AWS deployment
+
+I would deploy the project creating three instances in AWS. The first instance it would be a Elastic Compute Cloud Instance (EC2). I would choose the minimum requeriments for starting a project. I would use a Ubuntu image on instance, maybe Ubuntu Server 16.04. 
+
+The next step it would be create the storage and the security groups. I would choose a general puporse SSD storage with up to 30GB of disk space. I would configure a security group opning MySql (only from my office IP), SSH (office IP) and HTTP (Anywhere) ports. Maybe it would be necessary to open a custom port for the API Web Service.
+
+For accesing to ssh it would be necessary to download a key pair security certification.
+
+I would launch the instance and would accss via ssh. I would install the PHP + Apache Server and all the requeriments for a Laravel 5.3 project. I would separate the project in two microservices, one microservice it would be the API Web service, and the other the Front-end accessor. This project would be deployed via git pull
+
+The next instance it would be a RDS instance for a MySql Database Instace. Like the first instance, we would use the minimun instance at begining. We configure all settings and port and we would sync the instance with the security group created just before.
+
+The third instance would be a S3. This instance would allow us to keep all multimedia reachable via front-end accesor service.
+

@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Pizza::class, 50)->create()->each(function($u) {
+        factory(App\Pizza::class, 15)->create()->each(function($u) {
             $u->ingredients()->saveMany(factory(App\Ingredient::class, rand(2, 5))->make());
         });
     }

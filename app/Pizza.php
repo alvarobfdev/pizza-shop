@@ -17,4 +17,5 @@ class Pizza extends Model
         $pizzaPriceCalculator = new PizzaPriceCalculator();
         return $pizzaPriceCalculator->calculatePrice($this->ingredients()->get());
     }
+
 }
