@@ -2,6 +2,12 @@
 
 # Pizza Shop Routes
 
+
+<table>
+    <tr>
+        <td>Verb</td><td>URI</td><td>Action</td><td>Example</td>
+    </tr>
+</table>
 Verb    URI	                                Action      Example:
 
 GET     pizza-shop/public/api/v1/pizza      READ        OUTPUT-> {
