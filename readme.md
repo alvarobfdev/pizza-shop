@@ -8,7 +8,7 @@
         <td>Verb</td><td>URI</td><td>Action</td><td>Example</td>
     </tr>
     <tr>
-        <td>GET</td><td>pizza-shop/public/api/v1/pizza</td><td>READ</td><td>{"pizzas": [
+        <td>GET</td><td>pizza-shop/public/api/v1/pizza</td><td>READ</td><td>OUTPUT->{"pizzas": [
                                                                             {
                                                                               "id": 1,
                                                                               "name": "Quincy Okuneva DDS",
@@ -63,31 +63,26 @@
 
                                                                                                                                                    }</td>
         </tr>
+        <tr>
+                    <td>PUT</td><td>pizza-shop/public/api/v1/pizza/{id}</td><td>UPDATE</td><td>INPUT -> {"pizza":
+                                                                                                                                                                    {
+                                                                                                                                                                        "name":"Carbonara",
+                                                                                                                                                                        "image":"/hola/hola",
+                                                                                                                                                                        "ingredients":[
+                                                                                                                                                                           {
+                                                                                                                                                                               "id":"3"
+                                                                                                                                                                           },
+                                                                                                                                                                           {
+                                                                                                                                                                               "name":"Bacon",
+                                                                                                                                                                               "amount":"2.50"
+                                                                                                                                                                           }
+
+                                                                                                                                                                        ]
+                                                                                                                                                                    }
+
+                                                                                                                                                                }</td>
+        </tr>
+        <tr>
+                            <td>DELETE</td><td>pizza-shop/public/api/v1/pizza/{id}</td><td>DELETE</td><td>{"success":"ok"}</td>
+                            </tr>
 </table>
-
-
-
-
-
-
-
-PUT   pizza-shop/public/api/v1/pizza/{id}    UPDATE     INPUT -> {"pizza":
-                                                                     {
-                                                                         "name":"Carbonara",
-                                                                         "image":"/hola/hola",
-                                                                         "ingredients":[
-                                                                            {
-                                                                                "id":"3"
-                                                                            },
-                                                                            {
-                                                                                "name":"Bacon",
-                                                                                "amount":"2.50"
-                                                                            }
-
-                                                                         ]
-                                                                     }
-
-                                                                 }
-
-
-DELETE  pizza-shop/public/api/v1/pizza/{id}   DELETE    //
